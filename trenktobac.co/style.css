@@ -1,0 +1,21 @@
+.mainMenu{
+	list-style-type: none;
+}
+
+.menuLinks{
+	font-size:130%;
+	text-decoration:none; 
+	color: #4f5154;	
+}
+
+.menuLinks:hover{
+	color:#7c8087;
+//	color:#a3a8af;
+}
+	.menu{	
+			font-family: Abel;
+			display: inline-block;
+			margin: 0 0 0 5px;
+			font-size: 145%;
+			color: #4f5154;
+		}

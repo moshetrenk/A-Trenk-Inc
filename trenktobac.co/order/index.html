@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Trenk Inc</title>
+
+	<link rel = 'stylesheet' type = 'text/css' href = '../style.css'/>
+	<link rel = 'shortcut icon' type = 'image/x-icon' href = '../contents/ic.ico' />
+	<link href = 'https://fonts.googleapis.com/css?family=Abel' rel = 'stylesheet'>
+	<link href = 'https://fonts.googleapis.com/css?family=Poiret+One' rel = 'stylesheet'>
+	<link href = 'https://fonts.googleapis.com/css?family=Josefin+Slab' rel = 'stylesheet'>
+
+	<script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script type = 'text/javascript' src = '../script.js'></script>
+	
+	<script type = 'text/javascript'>
+		function ie() {
+			if (window.navigator.userAgent.indexOf("MSIE ") > 0)
+				alert('Unfortunately our online order page is not supported by Internet Explorer. Please try again with google chrome. We apologize for the inconvenience.');
+		}
+	</script>
+
+	<!-- the import is not working in the .css so I put the style for the menu class here instead -->	
+	<style>
+		.menu{	
+			font-family: Abel;
+			display: inline-block;
+			margin: 0 0 0 5px;
+			font-size: 145%;
+			color: #4f5154;
+		}
+
+		p{
+			margin: 0;
+			padding: 0;
+		}
+
+		#submitButton{
+			font-family: Josefin Slab;
+			font-size: 108%;
+			font-weight: bold;
+		}
+	</style>
+
+	<meta charset = 'utf-8'>
+	<!-- <meta name = 'keywords' content = "order tobacco and stuff"> 
+	<meta name = "description" content = "Order page at A Trenk Inc">-->
+	<meta name = 'author' content = 'Moshe Trenk'>
+</head>
+
+<body onload = 'ie()'>
+	<center>
+	<a href = 'http://trenktobac.co/'><img src = '../img.jpg'></a>
+	
+	<div style = 'margin: 0; padding: 0'>
+		<ul class = 'mainMenu'>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/'>&nbspAbout&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/order' style = 'color:#a3a8af'>&nbspOrder&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/catalog'>&nbspCatalog&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/account'>&nbspAccount&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/hours'>&nbspHours and Contact&nbsp</a></li>
+              	</ul>
+	</div>
+
+	<center>
+		<p style = 'font-size: 110%; margin: 30px 135px 0 135px; font-align: center; font-family: Josefin Slab'>
+	
+			Press enter to go to next item. If there is any problem or unavailable options/items, or if there is anything you want to tell us,
+			feel free to add anything to the comment box and we will do what we can. Orders must be placed with verified email address, please call for any information. <br><br>
+		</p>
+	</center>
+	<div id = 'contents'>
+		<form method = 'POST' action = 'order.php'>
+			<div id = 'topContainer'>
+				<div>
+					<table>
+						<tr><td><p style = 'font-family: Josefin Slab'>Store Name:</p></td><td><input type = text style = 'width:169px' id = 'store' name = 'store' onkeyup = 'g(this)' required /></td>
+							<td rowspan = 3><p style = 'padding: 0 0 0 16px; font-family: Josefin Slab'>Comments:</p></td> 
+							<td rowspan = 3><textarea style = 'padding: 0 35px 0 0; height: 74px; width: 92%;' name='comment' id='comment' placeholder = 'Pickup order? Looking for deals? Tell us here. Hablamos espanol. Hum Hindi Bol Sakte Hain'></textarea><br /></td> 
+						</tr>
+						<tr><td><p style = 'font-family: Josefin Slab'>Phone Number:</p></td><td><input type = phone style = 'width:167px' name = 'num' id = 'num' onkeyup = 'g(this)' required /></td></tr>
+						<tr><td><p style = 'font-family: Josefin Slab'>Email Address:</p></td><td><input type = email style = 'width:169px' name = 'email' id = 'email' onkeyup = 'g(this)' required /></td></tr>
+					</table>
+				</div>
+			</div>
+			
+			<table style = 'padding: 25px 0 0 25px'>
+			<tr><td id = 'row1' colspan = 4>
+				<input type = 'select' id = '1' name = 'brand1' list = 'brands' placeholder = 'Brand' onkeyup = 'setStyles(this)' onclick = 'setStyles(this)' onfocus = 'setStyles(this)' onselect = 'setStyles(this)' oninput = 'setStyles(this)'>
+				<input type = 'select' id = 'style1' name = 'style1' placeholder = 'Style' onkeyup = 'g(this)'>
+				<input type = 'select' id = 'size1' name = 'size1' placeholder = 'Size' onkeyup = 'g(this)'>
+				<input type = 'text' size = 4 id = 'q1' class = 'q' name = 'q1' placeholder = '#' onkeypress = 'f(this)' onkeyup = 'verify(this)'></td>
+			</tr>
+			<tr><td colspan = 4 id = 'row2'></td></tr>
+			<tr><td colspan = 4 id = 'row3'></td></tr>
+			<tr><td colspan = 4 id = 'row4'></td></tr>
+			<tr><td colspan = 4 id = 'row5'></td></tr>
+			<tr><td colspan = 4 id = 'row6'></td></tr>
+			<tr><td colspan = 4 id = 'row7'></td></tr>
+			<tr><td colspan = 4 id = 'row8'></td></tr>
+			<tr><td colspan = 4 id = 'row9'></td></tr>
+			<tr><td colspan = 4 id = 'row10'></td></tr>
+			<tr><td colspan = 4 id = 'row11'></td></tr>
+			<tr><td colspan = 4 id = 'row12'></td></tr>
+			<tr><td colspan = 4 id = 'row13'></td></tr>
+			<tr><td colspan = 4 id = 'row14'></td></tr>
+			<tr><td colspan = 4 id = 'row15'></td></tr>
+			<tr><td colspan = 4 id = 'row16'></td></tr>
+			<tr><td colspan = 4 id = 'row17'></td></tr>
+			<tr><td colspan = 4 id = 'row18'></td></tr>
+			<tr><td colspan = 4 id = 'row19'></td></tr>
+			<tr><td colspan = 4 id = 'row20'></td></tr>
+			<tr><td colspan = 4 id = 'row21'></td></tr>
+			<tr><td colspan = 4 id = 'row22'></td></tr>
+			<tr><td colspan = 4 id = 'row23'></td></tr>
+			<tr><td colspan = 4 id = 'row24'></td></tr>
+			<tr><td colspan = 4 id = 'row25'></td></tr>
+			<tr><td colspan = 4 id = 'row26'></td></tr>
+			<tr><td colspan = 4 id = 'row27'></td></tr>
+			<tr><td colspan = 4 id = 'row28'></td></tr>
+			<tr><td colspan = 4 id = 'row29'></td></tr>
+			<tr><td colspan = 4 id = 'row30'></td></tr>
+			<tr><td colspan = 4 id = 'row31'></td></tr>
+			<tr><td colspan = 4 id = 'row32'></td></tr>
+			<tr><td colspan = 4 id = 'row33'></td></tr>
+			<tr><td colspan = 4 id = 'row34'></td></tr>
+			<tr><td colspan = 4 id = 'row35'></td></tr>
+			<tr><td colspan = 4 id = 'row36'></td></tr>
+			<tr><td colspan = 4 id = 'row37'></td></tr>
+			<tr><td colspan = 4 id = 'row38'></td></tr>
+			<tr><td colspan = 4 id = 'row39'></td></tr>
+			<tr><td colspan = 4 id = 'row40'></td></tr>
+			<tr><td colspan = 4 id = 'row41'></td></tr>
+			<tr><td colspan = 4 id = 'row42'></td></tr>
+			<tr><td colspan = 4 id = 'row43'></td></tr>
+			<tr><td colspan = 4 id = 'row44'></td></tr>
+			<tr><td colspan = 4 id = 'row45'></td></tr>
+			<tr><td colspan = 4 id = 'row46'></td></tr>
+			<tr><td colspan = 4 id = 'row47'></td></tr>
+			<tr><td colspan = 4 id = 'row48'></td></tr>
+			<tr><td colspan = 4 id = 'row49'></td></tr>
+
+			
+			<tr><td colspan = 4 align = center><input id = 'submitButton' style = 'height: 25px; width: 167px; border-radius: 15%' type = 'submit' value = 'Place Order'></td></tr>
+		</table>
+		</form>
+	</div>	
+
+	</center>
+
+	<!-- apparently datalists work perfectly whether you set the 
+		values in option or type them between the option tag -->
+
+	<datalist id = 'brands'>
+		 <option value = 'Marlboro'></option> 
+		 <option value = 'Newport'></option> 
+		 <option value = 'Camel'></option> 
+		 <option value = 'Winston'></option> 
+		 <option value = 'Salem'></option> 
+		 <option value = 'Parliament'></option> 
+		 <option value = 'Merit'></option> 
+		 <option value = 'Kool'></option> 
+		 <option value = 'American Spirit'></option> 
+		 <option value = 'Virginia Slim'></option> 
+		 <option value = 'Pall Mall'></option> 
+		 <option value = 'Vantage'></option> 
+		 <option value = 'Tareyton'></option> 
+		 <option value = 'Kent'></option> 
+		 <option value = 'True'></option> 
+		 <option value = 'Carlton'></option> 
+		 <option value = 'USA Gold'></option> 
+		 <option value = 'Sonoma'></option> 
+		 <option value = 'Wave'></option> 
+		 <option value = 'Wings'></option> 
+		 <option value = 'Doral'></option> 
+		 <option value = '555'></option> 
+		 <option value = 'Benson &amp; Hedges'></option> 
+		 <option value = 'Now'></option> 
+		 <option value = 'More'></option> 
+		 <option value = 'Capri'></option> 
+		 <option value = 'Dunhill'></option> 
+		 <option value = 'Misty'></option> 
+		 <option value = 'L&amp;M'></option> 
+		 <option value = 'Nat Sherman'></option>
+		 <option value = 'Maverick'></option>
+		 <option value = 'Montclair'></option>
+	</datalist>
+
+	<datalist id = 'Marlboro'>
+		<option>Red</option>
+		<option>Gold (Lights)</option>
+		<option>Silver (Ultra Lights)</option>
+		<option>Red Label (Medium)</option>
+		<option>Menthol Gold (Menthol Lights)</option>
+		<option>Menthol</option>
+		<option>Green</option>
+		<option>Blue (Mild)</option>
+		<option>Blend 27</option>
+		<option>Virginia Blend</option>
+		<option>Blend 54</option>
+		<option>Special Blend Red</option>
+		<option>Special Blend Gold (Light)</option>
+		<option>Special Blend Black</option>
+		<option>Special Blend Black Menthol</option>
+		<option>Rich Blue</option><option>Edge</option>
+		<option>Nxt</option>
+	</datalist>
+
+	<datalist id = 'Newport'>
+		<option>Menthol</option>
+		<option>Menthol Gold</option>
+		<option>Menthol Blue</option>
+		<option>Menthol Smooth (Black)</option>
+		<option>Non-Menthol (Red)</option>
+		<option>Non-Menthol (Gold)</option>
+	</datalist>
+	
+	<datalist id = 'Parliament'>
+		<option>Light (White/Blue colors)</option>
+		<option>Menthol/Menthol Light (White/Light Green)</option>
+		<option>Silver (Ultra Light)</option>
+		<option>Menthol Silver (Menthol Ultra Light)</option>
+		<option>Menthol</option>
+	</datalist>	
+
+	<datalist id = 'Winston'>
+		<option>Red</option>
+		<option>Gold</option>
+		<option>White</option>
+	</datalist>
+
+	<datalist id = 'Salem'>
+		<option>Regular</option>
+		<option>Gold</option>
+		<option>Silver</option>
+		<option>Slim</option>
+	</datalist>
+
+	<datalist id = 'Camel'>
+		<option>Blue (Lights)</option>
+		<option>Non-Filter Soft</option>
+		<option>Crush (Black)</option>
+		<option>Crush Menthol (Green)</option>
+		<option>Crush Menthol Silver (White/Green)</option>
+		<option>99 Filter</option>
+		<option>99 Blue</option>
+		<option>Turkish Silver</option>
+		<option>Turkish Gold</option>
+		<option>Turkish Royal</option>
+	</datalist>
+
+	<datalist id = 'Kool'>
+		<option>Regular</option>
+		<option>Soft</option>
+		<option>Blue</option>
+	</datalist>
+
+	<datalist id = 'Merit'>
+		<option>Yellow</option>
+		<option>Blue</option>
+		<option>Menthol Silver</option>
+	</datalist>
+
+	<datalist id = 'American Spirit'>
+		<option>Yellow</option>
+		<option>Light Blue</option>
+		<option>Dark Green</option>
+		<option>Menthol Light</option>
+		<option>Orange (Ultra Light)</option>
+		<option>Celadon (Medium)</option>
+		<option>Black/Perique</option>
+		<option>Organic Regular (Dark Blue)</option>
+		<option>Organic Gold (Light)</option>
+	</datalist>
+
+	<datalist id = 'Virginia Slim'>
+		<option>Red (Full Flavor)</option>
+		<option>Gold (Light)</option>
+		<option>Menthol Gold (Menthol Light)</option>
+		<option>Silver (Ultra Light)</option>
+		<option>Menthol Silver (Methol Ultra Light)</option>	
+		<option>Purple (Super Slim Light)</option>
+	</datalist>
+
+	<datalist id = 'Pall Mall'>
+		<option>Red (Full Flavor)</option>
+		<option>Blue (Light)</option>
+		<option>Green (Menthol)</option>
+		<option>Menthol White</option>
+		<option>Menthol Black</option>
+		<option>Orange (Ultra Light)</option>
+		<option>Gold</option>
+	</datalist>
+
+	<datalist id = 'Vantage'>
+		<option>Regular</option>
+	</datalist>
+
+	<datalist id = 'Tareyton'>
+		<option>Regular</option>
+	</datalist>
+
+	<datalist id = 'Kent'>
+		<option>Soft Pack</option>
+		<option>Gold?</option>
+		<option>II</option>
+		<option>III</option>
+	</datalist>
+
+	<datalist id = 'True'>
+		<option>Soft</option>
+		<option>Box</option>
+		<option>Menthol (Soft)</option>
+	</datalist>
+
+	<datalist id = 'Carlton'>
+		<option>Regular</option>
+	</datalist>
+
+	<datalist id = 'USA Gold'>
+		<option>Red</option>
+		<option>Gold</option>
+		<option>Menthol (Dark Green)</option>
+		<option>Methol Light (Light Green)</option>
+		<option>Blue (Ultra Light)</option>
+	</datalist>
+	
+	<datalist id = 'sonomaStyles'>
+		<option>Red</option>
+		<option>Gold</option>
+		<option>Blue (Ultra Light)</option>
+		<option>Menthol Light (Light Green)</option>
+		<option>Menthol</option>
+	</datalist>
+
+	<datalist id = 'Wave'>
+		<option>Menthol</option>
+		<option>Red</option>
+		<option>Blue (Light)</option>
+		<option>Menthol Green (Menthol Light)</option>
+		<option>Silver (Ultra Light)</option>
+	</datalist>
+
+	<datalist id = 'Wings'>
+		<option>Red</option>
+		<option>Gold (Light)</option>
+		<option>Menthol</option>
+	</datalist>
+
+	<datalist id = 'Doral'>
+		<option>Gold</option>
+	</datalist>
+
+	<datalist id = '555'>
+		<option>Regular</option>
+	</datalist>
+
+	<datalist id = 'Benson & Hedges'>
+		<option>Premium (Full Flavor)</option>
+		<option>Premium Soft</option>
+		<option>Menthol</option>
+		<option>Menthol Soft</option>
+		<option>Luxury (Light)</option>
+		<option>Luxury Soft</option>
+		<option>Luxury Menthol (Menthol Light)</option>
+		<option>Luxury Menthol Soft</option>
+		<option>Deluxe (Ultra Light)</option>
+		<option>(Deluxe Menthol)</option>
+	</datalist>
+
+	<datalist id = 'Now'>
+		<option>Regular</option>
+		<option>(Light)</option>
+		<option>Menthol</option>
+	</datalist>
+
+	<datalist id = 'More'>
+		<option>Red</option>
+		<option>Menthol</option>
+	</datalist>
+
+	<datalist id = 'Capri'>
+		<option>Magenta (Full Flavor/Light)</option>
+		<option>Indigo (Menthol/Menthol Light)</option>
+		<option>Violet (Ultra Light)</option>
+		<option>Jade (Menthol Ultra Light)</option>
+	</datalist>
+
+	<datalist id = 'Dunhill'>
+		<option>Red</option>
+		<option>Blue (Light)</option>
+		<option>Menthol</option>
+	</datalist>
+
+	<datalist id = 'Misty'>
+		<option>Blue (Lights)</option>
+		<option>Green (Menthol Light)</option>
+		<option>Rose (pink - Ultra Light)</option>
+		<option>Silver (Menthol Ultra Light)</option>
+	</datalist>
+
+	<datalist id = 'L & M'>
+		<option>Blue (Light)</option>
+		<option>Red</option>
+		<option>Menthol</option>
+		<option>Menthol Bold</option>
+	</datalist>				
+
+	<datalist id = 'Nat Sherman'>
+		<option>Black & Gold</option>
+		<option>Classic Blue</option>
+		<option>Classic Menthol</option>
+		<option>Clove</option>
+		<option>Fantasia</option>
+		<option>Hint Of Menthol</option>
+		<option>Naturals Blue</option>
+		<option>Natural Yellow</option>
+		<option>Mcd Brown</option>
+		<option>Mcd Gold</option>
+		<option>Naturals Menthol</option>
+		<option>Natural Organic</option>
+		<option>Naturals Blue King</option>
+		<option>Classic</option>
+		<option>Mcd Menthol</option>
+		<option>Mcd Silver</option>
+		<option>Non Filter</option>
+		<option>Naturals Menthol</option>
+		<option>Naturals Original</option>
+		<option>Naturals Yellow</option>
+	</datalist>
+
+	<datalist id = 'Maverick'>
+		<option>Red</option>
+		<option>Gold (Light)</option>
+		<option>Menthol</option>
+		<option>Menthol Green (Menthol Light)</option>
+		<option>Silver (Ultra Light)</option>
+		<option>Menthol Silver (Menthol Ultra Light)</option>
+	</datalist>
+
+	<datalist id = 'Montclair'>
+		<option>Blue</option>
+		<option>Green</option>
+		<option>Black</option>
+		<option>Silver</option>
+	</datalist>
+
+	<datalist id = 'MarlboroSizes'>
+		<option>King</option>
+		<option>100</option>
+		<option>72</option>
+		<option>Soft</option>
+		<option>83</option>
+	</datalist>
+
+	<datalist id = 'NewportSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'ParliamentSizes'>
+		<option>Light (White/Blue colors)King</option>
+		<option>100</option>
+	</datalist>	
+
+	<datalist id = 'WinstonSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'SalemSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'CamelSizes'>
+		<option>King</option>
+		<option>100</option>
+		<option>99s</option>
+	</datalist>
+
+	<datalist id = 'KoolSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'MeritSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'American SpiritSizes'>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'Virginia SlimSizes'>
+		<option>100</option>
+		<option>120</option>
+	</datalist>
+
+	<datalist id = 'Pall MallSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'VantageSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'TareytonSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'KentSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'TrueSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'CarltonSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'USA GoldSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'WaveSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'WingsSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'DoralSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = '555Sizes'>
+		<option>Regular</option>
+	</datalist>
+
+	<datalist id = 'Benson & HedgesSizes'>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'NowSizes'>
+		<option>King</option>
+		<option>100</option>
+	</datalist>
+
+	<datalist id = 'MoreSizes'>
+		<option>120</option>
+	</datalist>
+
+	<datalist id = 'CapriSizes'>
+		<option>100</option>
+		<option>120</option>
+	</datalist>
+
+	<datalist id = 'DunhillSizes'>
+		<option>Cube</option>
+	</datalist>
+
+	<datalist id = 'MistySizes'>
+		<option>100</option>
+		<option>120</option>
+	</datalist>
+
+	<datalist id = 'L & MSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>				
+
+	<datalist id = 'Nat ShermanSizes'>
+		<option>Cube</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'MaverickSizes'>
+		<option>100</option>
+		<option>King</option>
+	</datalist>
+
+	<datalist id = 'MontclairSizes'>
+		<option>100</option>
+	</datalist>
+
+</body>
+
+</html>

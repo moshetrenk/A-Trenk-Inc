@@ -1,0 +1,117 @@
+.menu{	
+	font-family: Abel;
+	display: inline-block;
+	margin: 0 0 0 5px;
+	font-size: 145%;
+	color: #4f5154;
+}
+
+.box{
+	position: relative;
+	height: 325px;
+	top: 40px;
+	width:400px;
+}
+
+.box button{
+	background: #f1f1f1;
+	border:0;
+	color: #757575;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 300;
+	width:330px;
+	margin: 20px 20px 20px 55px;
+	display:block;
+	cursor:pointer;
+    	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	border-radius: 2px;
+}
+
+.box button:active{
+	background: #009688;
+  	color: #757575;
+}
+
+.box button:hover{
+	background: black;
+	color: white;
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+.box p{
+	font-size:14px;
+	text-align:center;
+}
+
+.group{ 
+	position:relative; 
+	margin-bottom: 35px; 	
+	margin-left: 40px;
+}
+
+.inputMaterial {
+	font-size:18px;
+	padding:10px 10px 10px 25px;
+	display:block;
+	width:300px;
+	border:none;
+	border-bottom:1px solid #757575;
+}
+
+.inputMaterial:focus { 	
+	outline:none;
+}
+
+label {
+	color:#999; 
+	font-size:14px;
+	font-weight:normal;
+	position:absolute;
+	pointer-events:none;
+	left:5px;
+	top:10px;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+.inputMaterial:focus ~ label, .inputMaterial:valid ~ label 		{
+	top:-20px;
+	font-size:14px;
+	color: black;
+}
+
+.bar {
+	position:relative; 
+	display:block; 
+	width:335px; 
+}
+
+.bar:before, .bar:after {
+	content:'';
+	height:2px; 	
+	width:0;
+	bottom:1px; 
+	position:absolute;
+	background: black; 
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+.bar:before {
+	left:50%;
+}
+
+.bar:after {
+	right:50%; 
+}
+
+.inputMaterial:focus ~ .bar:before, .inputMaterial:focus ~ .bar:after {
+	width:50%;
+}
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Trenk Inc</title>
+
+	<link rel = 'stylesheet' type = 'text/css' href = '../style.css'/>
+	<link rel = 'stylesheet' type = 'text/css' href = 'style.css'/>
+	<link rel = 'shortcut icon' type = 'image/x-icon' href = '../contents/ic.ico' />
+	<link href = 'https://fonts.googleapis.com/css?family=Abel' rel = 'stylesheet'>
+	<link href = 'https://fonts.googleapis.com/css?family=Poiret+One' rel = 'stylesheet'>
+	<link href = 'https://fonts.googleapis.com/css?family=Josefin+Slab' rel = 'stylesheet'>
+
+	<script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script type = 'text/javascript' src = '../script.js'></script>
+	
+	<script type = 'text/javascript'>
+		var verify = function(){
+			document.getElementById('emAdd').setCustomValidity('Account not found')	
+		}
+	</script>
+		
+	<meta charset = 'utf-8'>
+	<meta name = 'keywords' content = "A, Trenk, Inc, A Trenk, Trenk Inc, A Trenk Inc, Tobacco, Trenk Tobacco, order tobacco and stuff"> 
+	<meta name = 'author' content = 'Moshe Trenk'>
+</head>
+
+<body>
+	<center>
+	<a href = 'http://trenktobac.co/'><img src = '../img.jpg'></a>
+
+	<div style = 'margin: 0; padding: 0'>
+		<ul class = 'mainMenu'>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/'>&nbspAbout&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/order'>&nbspOrder&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/catalog'>&nbspCatalog&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/account' style = 'color:#a3a8af'>&nbspAccount&nbsp</a></li> <p style = 'display: inline; font-size:170%'>|</p>
+              		<li class = 'menu'><a class = 'menuLinks' href = 'http://trenktobac.co/hours'>&nbspHours and Contact&nbsp</a></li>
+              	</ul>
+
+	</div>
+
+	<p style = 'margin: 30px 135px 0 135px; font-align: center; font-family: Josefin Slab'>
+		Please note that user logins are only applicable to wholesale accounts. <br>Retail customers can place an order without logging in using a verified email address.<br> For information about how to verify your email address, please call us at 201-435-7751
+	</p>
+	
+	<div class = 'box'>
+  		<form action = '' method = 'post' >
+			<div class = 'group'>      
+				<input id = 'emAdd' onkeyup = 'verify()' class = 'inputMaterial' type = 'email' required>
+				<span class = 'highlight'></span>
+				<span class = 'bar'></span>
+				<label>Email Address</label>
+			</div>
+	    		<div class = 'group'>      
+      				<input class = 'inputMaterial' type = 'password' required>
+      				<span class = 'highlight'></span>
+      				<span class = 'bar'></span>
+      				<label>Password</label>
+    			</div>
+    			<button id = 'buttonlogintoregister' type = submit>Login</button>
+  		</form>
+
+	</div>	
+	</center>
+</body>
+
+</html>
