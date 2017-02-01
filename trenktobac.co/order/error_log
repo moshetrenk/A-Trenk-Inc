@@ -1,4 +1,0 @@
-[22-Jan-2017 17:03:57 America/New_York] PHP Warning:  require(mailer/PHPMailerAutoload.php): failed to open stream: No such file or directory in /home/trenhqxa/public_html/order/order.php on line 157
-[22-Jan-2017 17:03:57 America/New_York] PHP Warning:  require(mailer/PHPMailerAutoload.php): failed to open stream: No such file or directory in /home/trenhqxa/public_html/order/order.php on line 157
-[22-Jan-2017 17:03:57 America/New_York] PHP Fatal error:  require(): Failed opening required 'mailer/PHPMailerAutoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/trenhqxa/public_html/order/order.php on line 157
-[25-Jan-2017 00:34:28 America/New_York] PHP Parse error:  syntax error, unexpected '$x' (T_VARIABLE), expecting ',' or ';' in /home/trenhqxa/public_html/order/order.php on line 152
