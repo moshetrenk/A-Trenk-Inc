@@ -3,12 +3,16 @@
 
 
 
-Note: this file was an original version and is not in use.
+
+Remember when you were second year CS and you wanted to do something cool? This was what I came up with.    
+The actual version that's currently used is the scheduleG.java 
 
 
 
 
-*/#include <iostream>
+
+*/
+#include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <string>
